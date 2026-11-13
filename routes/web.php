@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TargetController;
+use App\Http\Controllers\TargetScopeController;
 
 // Guest routes
 Route::middleware('guest')->group(function () {
@@ -37,3 +39,12 @@ Route::middleware('auth')->group(function () {
         ->name('logout');
 
 });
+
+// Target routes
+Route::middleware(['auth'])->group(function () {
+    Route::resource('targets', TargetController::class);
+});
+
+// TargetScope route
+Route::resource('targets.scopes', TargetScopeController::class)
+    ->except(['index', 'show']);

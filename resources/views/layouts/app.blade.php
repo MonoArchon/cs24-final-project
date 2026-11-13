@@ -97,7 +97,7 @@
             Dashboard
         </a>
 
-        <a href="#">
+        <a href="{{ route('targets.index') }}" class="nav-link">
             <i class="bi bi-globe me-2"></i>
             Targets
         </a>
